@@ -1,30 +1,31 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
-const ShowTodo = ({todoName, status, handleCheck, statusList, handleDelete}) => {
-
-    const [isDelete, setIsDelete] = useState(false)
-    useEffect(() => {
-        if(statusList === "completed"){
-            setIsDelete(true)
-        } else {
-            setIsDelete(false)
-        }
-    }, [statusList])
+const ShowTodo = ({ todoName, status, handleCheck, handleDelete, isDelete }) => {
 
     return (
         <div className='todoItem'>
-            <input type="checkbox"
-                name=""
-                id="" 
-                checked = {status}
-                onChange={() => {
-                    handleCheck()
-                }}
-            />
-            <label>{todoName}</label>
-            {isDelete ? <button onClick={() => {
-                handleDelete()
-            }}>X</button> : ''}
+            <div className='todoItem_info'>
+                <input 
+                    type="checkbox"
+                    name=""
+                    id=""
+                    checked={status}
+                    onChange={() => {
+                        handleCheck()
+                    }}
+                />
+                <label className= {status ? 'input--checked': ''}>{todoName}</label>
+            </div>
+            {
+                isDelete ? <button
+                    className='btn_delete'
+                    onClick={() => {
+                        handleDelete()
+                    }}
+                >
+                    X
+                </button> : ''
+            }
         </div>
     )
 }

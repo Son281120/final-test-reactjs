@@ -1,0 +1,42 @@
+.todoList {
+    padding: 10px;
+    
+    .todoItem {
+        display: flex;
+        padding: 10px;
+
+        .todoItem_info {
+            flex: 1;
+
+            input {
+                margin-right: 10px;
+            }
+
+            .input--checked {
+                text-decoration: line-through;
+            }
+        }
+
+
+        .btn_delete {
+            color: #fff;
+            background-color: #FF3041;
+            border: #FF3041;
+            padding: 0 6px;
+            border-radius: 50%;
+        }
+
+
+        
+    }
+
+    .btn_DeleteAll {
+        float: right;
+        padding: 10px 20px;
+        background-color: #FF3041;
+        color: #fff;
+        border: #FF3041;
+        border-radius: 8px;
+        margin-top: 14px;
+    }
+}

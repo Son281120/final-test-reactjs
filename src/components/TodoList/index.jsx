@@ -1,12 +1,14 @@
 import ShowTodo from './ShowTodo'
 import { Context } from '../../store/context'
 import { useContext, useEffect, useState } from 'react';
+import './TodoList.scss'
 
 
-
-const TodoList = ({statusList}) => {
+const TodoList = ({ statusList }) => {
     const { todoList, setTodoList } = useContext(Context);
     const [arrayRender, setArrayRender] = useState([])
+    const [isDelete, setIsDelete] = useState(false)
+
 
     const handleCheckTodo = (id) => {
         const idx = todoList.findIndex(item => item.id === id);
@@ -19,19 +21,27 @@ const TodoList = ({statusList}) => {
         todoList.splice(idx, 1);
         setTodoList([...todoList]);
     }
+
+    const handleDeleteAll = () => {
+        setTodoList([])
+    }
+
     useEffect(() => {
         if (statusList === "all") {
             setArrayRender(todoList);
+            setIsDelete(false);
         } else if (statusList === "active") {
             setArrayRender(todoList.filter(item => item.status === false));
+            setIsDelete(false);
         } else if (statusList === "completed") {
             setArrayRender(todoList.filter(item => item.status === true));
+            setIsDelete(true);
         }
     }, [statusList, todoList])
 
 
     return (
-        <div>
+        <div className='todoList'>
             {
                 arrayRender.map((item) => {
                     return <ShowTodo
@@ -44,9 +54,19 @@ const TodoList = ({statusList}) => {
                         handleDelete={() => {
                             handleDeleteTodo(item.id)
                         }}
-                        statusList = {statusList}
+                        isDelete={isDelete}
                     />
                 })
+            }
+            {
+                isDelete ?
+                    <button 
+                        className='btn_DeleteAll'
+                        onClick={() => {
+                            handleDeleteAll()
+                        }}>
+                        Delete all
+                    </button> : ''
             }
         </div>
     )
