@@ -1,8 +1,11 @@
 import React from 'react'
+import TodoList from '../TodoList'
 
 const Completed = () => {
     return (
-        <div>Completed</div>
+        <div>
+            <TodoList statusList = "completed"/>
+        </div>
     )
 }
 

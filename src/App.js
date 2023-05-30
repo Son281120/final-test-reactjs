@@ -12,9 +12,9 @@ const App = () => {
       <h1 className='title'>#todo</h1>
       <Menu/>
       <Routes>
-        <Route exact path="/" component={All} />
-        <Route path="/active" component={Active} />
-        <Route path="/completed" component={Completed} />
+        <Route path="/" element={<All/>} />
+        <Route path="/active" element={<Active/>} />
+        <Route path="/completed" element={<Completed/>} />
       </Routes>
     </div>
   )

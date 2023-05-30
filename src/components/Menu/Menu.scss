@@ -1,0 +1,25 @@
+.nav__menu {
+    border-bottom: 2px solid #ccc;
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+
+        li {
+            padding: 20px;
+
+            a {
+                color: #000;
+                text-decoration: none;
+                font-size: 18px;
+                font-weight: 600;
+            }
+        }
+
+        li:has(a.active-item) {
+            border-bottom: 4px solid #0084F5;
+        }
+    }
+}

@@ -1,10 +1,13 @@
 import React from 'react'
 import FormCreate from '../FormCreate'
+import TodoList from '../TodoList'
+
 
 const All = () => {
     return (
         <div className='all'>
-            <FormCreate/>
+            <FormCreate />
+            <TodoList statusList = "all"/>
         </div>
     )
 }

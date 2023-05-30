@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-
+import './Menu.scss'
 
 
 const Menu = () => {
@@ -9,7 +9,7 @@ const Menu = () => {
         return params.isActive ? "active-item" : ""
     }
     return (
-        <nav>
+        <nav className='nav__menu'>
             <ul>
                 <li>
                     <NavLink exact to="/" className={activeClass}>

@@ -3,9 +3,9 @@ import { createContext, useState } from "react";
 const Context = createContext()
 
 function Provider({children}){
-    const [todos, setTodos] = useState()
+    const [todoList, setTodoList] = useState([])
     return (
-        <Context.Provider value={{todos, setTodos}}>
+        <Context.Provider value={{todoList, setTodoList}}>
             {children}
         </Context.Provider>
     )
